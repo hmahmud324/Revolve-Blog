@@ -229,7 +229,7 @@
         const next_url = pagination[query];
         pagination[query] = false;
         return next_url;
-      } // if the user goes back to a previous query
+      } // if the website goes back to a previous query
       // we need to load the first page again
 
 

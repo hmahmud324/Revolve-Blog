@@ -31,16 +31,15 @@
           </div>
         </div>
         <div class="col d-flex flex-column">
-          <form method="post" action="{{ route('admin.update',['id' => $editProfile->id]) }}">
+          <form method="post" action="{{ route('admin.update',['id' => $editProfile->id]) }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
               <h2 class="mb-4">My Account</h2>
               <h3 class="card-title">Profile Details</h3>
               <div class="row align-items-center">
-                <div class="col-auto"> 
+                <div class="col-auto">
                   <img src="{{ asset($editProfile->image) }}" width="100"
                     class="img-thumbnail" />
-                  </span>
                 </div>
                 <div class="col-auto">
                   <input type="file" name="image" />

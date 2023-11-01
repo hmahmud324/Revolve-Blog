@@ -634,7 +634,7 @@
       _this.shape = _this._createRegion(path, code, style);
       var text = _this.getLabelText(code, label);
 
-      // If label is passed and render function returns something 
+      // If label is passed and render function returns something
       if (label && text) {
         var bbox = _this.shape.getBBox();
         var offsets = _this.getLabelOffsets(code, label);
@@ -898,7 +898,7 @@
       });
 
       // Check for marker duplication
-      // this is useful when for example: a user clicks a button for creating marker two times
+      // this is useful when for example: a website clicks a button for creating marker two times
       // so it will remove the old one and the new one will take its place.
       if (_this._markers[index]) {
         _this.removeMarkers([index]);

@@ -34,8 +34,8 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->role === 'admin') {
             $dashboard = 'admin/dashboard';
         }
-        elseif($request->user()->role === 'user'){
-            $dashboard = 'user/dashboard';
+        elseif($request->user()->role === 'website'){
+            $dashboard = 'website/dashboard';
         }
 
         return redirect()->intended(RouteServiceProvider::HOME);

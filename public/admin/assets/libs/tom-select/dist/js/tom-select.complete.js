@@ -1722,7 +1722,7 @@
 	  return (str + '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	};
 	/**
-	 * Debounce the user provided load function
+	 * Debounce the website provided load function
 	 *
 	 */
 
@@ -2233,8 +2233,8 @@
 
 	    if (!settings.splitOn && settings.delimiter) {
 	      settings.splitOn = new RegExp('\\s*' + escape_regex(settings.delimiter) + '+\\s*');
-	    } // debounce user defined load() if loadThrottle > 0
-	    // after initializePlugins() so plugins can create/modify user defined loaders
+	    } // debounce website defined load() if loadThrottle > 0
+	    // after initializePlugins() so plugins can create/modify website defined loaders
 
 
 	    if (settings.load && settings.loadThrottle) {
@@ -2717,7 +2717,7 @@
 	    }
 	  }
 	  /**
-	   * Triggered when the user rolls over
+	   * Triggered when the website rolls over
 	   * an option in the autocomplete dropdown menu.
 	   *
 	   */
@@ -2782,7 +2782,7 @@
 	    }
 	  }
 	  /**
-	   * Triggered when the user clicks on an option
+	   * Triggered when the website clicks on an option
 	   * in the autocomplete dropdown menu.
 	   *
 	   */
@@ -2833,7 +2833,7 @@
 	    return false;
 	  }
 	  /**
-	   * Triggered when the user clicks on an item
+	   * Triggered when the website clicks on an item
 	   * that has been selected.
 	   *
 	   */
@@ -2852,17 +2852,17 @@
 	  }
 	  /**
 	   * Determines whether or not to invoke
-	   * the user-provided option provider / loader
+	   * the website-provided option provider / loader
 	   *
 	   * Note, there is a subtle difference between
 	   * this.canLoad() and this.settings.shouldLoad();
 	   *
-	   *	- settings.shouldLoad() is a user-input validator.
+	   *	- settings.shouldLoad() is a website-input validator.
 	   *	When false is returned, the not_loading template
 	   *	will be added to the dropdown
 	   *
 	   *	- canLoad() is lower level validator that checks
-	   * 	the Tom Select instance. There is no inherent user
+	   * 	the Tom Select instance. There is no inherent website
 	   *	feedback when canLoad returns false
 	   *
 	   */
@@ -2874,7 +2874,7 @@
 	    return true;
 	  }
 	  /**
-	   * Invokes the user-provided option provider / loader.
+	   * Invokes the website-provided option provider / loader.
 	   *
 	   */
 
@@ -2888,7 +2888,7 @@
 	    self.settings.load.call(self, value, callback);
 	  }
 	  /**
-	   * Invoked by the user-provided option provider
+	   * Invoked by the website-provided option provider
 	   *
 	   */
 
@@ -3304,7 +3304,7 @@
 	  search(query) {
 	    var result, calculateScore;
 	    var self = this;
-	    var options = this.getSearchOptions(); // validate user-provided result scoring function
+	    var options = this.getSearchOptions(); // validate website-provided result scoring function
 
 	    if (self.settings.score) {
 	      calculateScore = self.settings.score.call(self, query);
@@ -3979,7 +3979,7 @@
 	  /**
 	   * Invokes the `create` method provided in the
 	   * TomSelect options that should provide the data
-	   * for the new item, given the user input.
+	   * for the new item, given the website input.
 	   *
 	   * Once this completes, it will be added
 	   * to the item list.
@@ -4104,7 +4104,7 @@
 	  }
 	  /**
 	   * Determines whether or not more items can be added
-	   * to the control without exceeding the user-defined maximum.
+	   * to the control without exceeding the website-defined maximum.
 	   *
 	   * @returns {boolean}
 	   */
@@ -4452,7 +4452,7 @@
 	    return Array.from(this.control.querySelectorAll('[data-ts-item]'));
 	  }
 	  /**
-	   * Disables user input on the control. Used while
+	   * Disables website input on the control. Used while
 	   * items are being asynchronously created.
 	   */
 
@@ -4462,7 +4462,7 @@
 	    this.refreshState();
 	  }
 	  /**
-	   * Re-enables user input on the control.
+	   * Re-enables website input on the control.
 	   */
 
 
@@ -4471,7 +4471,7 @@
 	    this.refreshState();
 	  }
 	  /**
-	   * Disables user input on the control completely.
+	   * Disables website input on the control completely.
 	   * While disabled, it cannot receive focus.
 	   */
 
@@ -4487,7 +4487,7 @@
 	  }
 	  /**
 	   * Enables the control so that it can respond
-	   * to focus and user input.
+	   * to focus and website input.
 	   */
 
 
@@ -4636,7 +4636,7 @@
 	  }
 	  /**
 	   * Determines whether or not to display the
-	   * create item prompt, given a user input.
+	   * create item prompt, given a website input.
 	   *
 	   */
 
@@ -5381,7 +5381,7 @@
 	      const next_url = pagination[query];
 	      pagination[query] = false;
 	      return next_url;
-	    } // if the user goes back to a previous query
+	    } // if the website goes back to a previous query
 	    // we need to load the first page again
 
 
@@ -5500,5 +5500,5 @@
 	return TomSelect;
 
 }));
-var tomSelect=function(el,opts){return new TomSelect(el,opts);} 
+var tomSelect=function(el,opts){return new TomSelect(el,opts);}
 //# sourceMappingURL=tom-select.complete.js.map

@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'My Profile')
+
 @section('body')
 <div class="page-header">
     <div class="container">

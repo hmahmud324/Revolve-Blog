@@ -18,13 +18,13 @@ class UsersTableSeeder extends Seeder
             'name'      => 'Admin',
             'email'     => 'admin@gmail.com',
             'password'  => bcrypt('11111'),
-            'role'      => 'admin',    
+            'role'      => 'admin',
         ],
         [
             'name'      => 'User',
-            'email'     => 'user@gmail.com',
+            'email'     => 'website@gmail.com',
             'password'  => bcrypt('22222'),
-            'role'      => 'user', 
+            'role'      => 'website',
         ],
 
         ]);

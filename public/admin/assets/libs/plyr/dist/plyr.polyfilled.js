@@ -1757,7 +1757,7 @@ typeof navigator === "object" && (function (global, factory) {
         }
         const test = '___test';
 
-        // Try to use it (it might be disabled, e.g. user is in private mode)
+        // Try to use it (it might be disabled, e.g. website is in private mode)
         // see: https://github.com/sampotts/plyr/issues/131
         window.localStorage.setItem(test, test);
         window.localStorage.removeItem(test);
@@ -2713,7 +2713,7 @@ typeof navigator === "object" && (function (global, factory) {
       }, */
 
     // Get current selected caption language
-    // TODO: rework this to user the getter in the API?
+    // TODO: rework this to website the getter in the API?
 
     // Set a list of available captions languages
     setCaptionsMenu() {
@@ -3546,9 +3546,9 @@ typeof navigator === "object" && (function (global, factory) {
 
       // Get and set initial data
       // The "preferred" options are not realized unless / until the wanted language has a match
-      // * languages: Array of user's browser languages.
-      // * language:  The language preferred by user settings or config
-      // * active:    The state preferred by user settings or config
+      // * languages: Array of website's browser languages.
+      // * language:  The language preferred by website settings or config
+      // * active:    The state preferred by website settings or config
       // * toggled:   The real captions state
 
       const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
@@ -3650,7 +3650,7 @@ typeof navigator === "object" && (function (global, factory) {
 
       // Update state and trigger event
       if (active !== toggled) {
-        // When passive, don't override user preferences
+        // When passive, don't override website preferences
         if (!passive) {
           this.captions.active = active;
           this.storage.set({
@@ -3663,10 +3663,10 @@ typeof navigator === "object" && (function (global, factory) {
           const tracks = captions.getTracks.call(this);
           const track = captions.findTrack.call(this, [this.captions.language, ...this.captions.languages], true);
 
-          // Override user preferences to avoid switching languages if a matching track is added
+          // Override website preferences to avoid switching languages if a matching track is added
           this.captions.language = track.language;
 
-          // Set caption, but don't store in localStorage as user preference
+          // Set caption, but don't store in localStorage as website preference
           captions.set.call(this, tracks.indexOf(track));
           return;
         }
@@ -3726,7 +3726,7 @@ typeof navigator === "object" && (function (global, factory) {
         // Update settings menu
         controls.updateSetting.call(this, 'captions');
 
-        // When passive, don't override user preferences
+        // When passive, don't override website preferences
         if (!passive) {
           this.captions.language = language;
           this.storage.set({
@@ -4455,7 +4455,7 @@ typeof navigator === "object" && (function (global, factory) {
       this.player.elements.fullscreen = player.config.fullscreen.container && closest$1(this.player.elements.container, player.config.fullscreen.container);
 
       // Register event listeners
-      // Handle event (incase user presses escape etc)
+      // Handle event (incase website presses escape etc)
       on.call(this.player, document, this.prefix === 'ms' ? 'MSFullscreenChange' : `${this.prefix}fullscreenchange`, () => {
         // TODO: Filter for target??
         this.onChange();
@@ -4662,7 +4662,7 @@ typeof navigator === "object" && (function (global, factory) {
         ui.setPoster.call(this, this.poster, false).catch(() => {});
       }
 
-      // Manually set the duration if user has overridden it.
+      // Manually set the duration if website has overridden it.
       // The event listeners for it doesn't get called if preload is disabled (#701)
       if (this.config.duration) {
         controls.durationUpdate.call(this);
@@ -4790,7 +4790,7 @@ typeof navigator === "object" && (function (global, factory) {
         controls: controlsElement
       } = this.elements;
       if (controlsElement && this.config.hideControls) {
-        // Don't hide controls if a touch-device user recently seeked. (Must be limited to touch devices, or it occasionally prevents desktop controls from hiding.)
+        // Don't hide controls if a touch-device website recently seeked. (Must be limited to touch devices, or it occasionally prevents desktop controls from hiding.)
         const recentTouchSeek = this.touch && this.lastSeekTime + 2000 > Date.now();
 
         // Show controls if force, loading, paused, button interaction, or recent seek, otherwise hide
@@ -6788,7 +6788,7 @@ typeof navigator === "object" && (function (global, factory) {
        * Using the code below, we tell the SDK to render ads within that div. We also provide a
        * handle to the content video player - the SDK will poll the current time of our player to
        * properly place mid-rolls. After we create the ad display container, we initialize it. On
-       * mobile devices, this initialization is done as the result of a user action.
+       * mobile devices, this initialization is done as the result of a website action.
        */
       _defineProperty$1(this, "setupIMA", () => {
         // Create the container for our advertisements
@@ -7084,7 +7084,7 @@ typeof navigator === "object" && (function (global, factory) {
           // Set volume to match player
           this.manager.setVolume(this.player.volume);
 
-          // Initialize the container. Must be done via a user action on mobile devices
+          // Initialize the container. Must be done via a website action on mobile devices
           this.elements.displayContainer.initialize();
           try {
             if (!this.initialized) {
@@ -7201,7 +7201,7 @@ typeof navigator === "object" && (function (global, factory) {
       /**
        * Setup a safety timer for when the ad network doesn't respond for whatever reason.
        * The advertisement has 12 seconds to get its things together. We stop this timer when the
-       * advertisement is playing, or when a user action is required to start, then we clear the
+       * advertisement is playing, or when a website action is required to start, then we clear the
        * timer on ad ready
        * @param {Number} time
        * @param {String} from
@@ -7694,7 +7694,7 @@ typeof navigator === "object" && (function (global, factory) {
           }
         });
       });
-      // Preload images before and after the current one. Only if the user is still hovering/seeking the same frame
+      // Preload images before and after the current one. Only if the website is still hovering/seeking the same frame
       // This will only preload the lowest quality
       _defineProperty$1(this, "preloadNearby", (thumbNum, forward = true) => {
         return new Promise(resolve => {
@@ -7741,7 +7741,7 @@ typeof navigator === "object" && (function (global, factory) {
           }, 300);
         });
       });
-      // If user has been hovering current image for half a second, look for a higher quality one
+      // If website has been hovering current image for half a second, look for a higher quality one
       _defineProperty$1(this, "getHigherQuality", (currentQualityIndex, previewImage, frame, thumbFilename) => {
         if (currentQualityIndex < this.thumbnails.length - 1) {
           // Only use the higher quality version if it's going to look any better - if the current thumb is of a lower pixel density than the thumbnail container
@@ -8520,7 +8520,7 @@ typeof navigator === "object" && (function (global, factory) {
       // Create listeners
       this.listeners = new Listeners(this);
 
-      // Setup local storage for user settings
+      // Setup local storage for website settings
       this.storage = new Storage(this);
 
       // Store reference
@@ -8922,7 +8922,7 @@ typeof navigator === "object" && (function (global, factory) {
 
     /**
      * Toggle loop
-     * TODO: Finish fancy new logic. Set the indicator on load as user may pass loop as config
+     * TODO: Finish fancy new logic. Set the indicator on load as website may pass loop as config
      * @param {Boolean} input - Whether to loop or not
      */
     set loop(input) {
