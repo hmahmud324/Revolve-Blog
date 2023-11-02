@@ -37,7 +37,6 @@
         document.getElementById("likesCount").innerText = likesCount;
     };
 </script>
-
 <script>
        const Toast = Swal.mixin({
             toast: true,
@@ -89,4 +88,13 @@
             })
         })
     })
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Auto move the slider after a time interval
+        setInterval(function() {
+            $('.carousel').carousel('next');
+        }, 7000); // Change the time interval (in milliseconds) as needed
+    });
 </script>

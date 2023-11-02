@@ -16,4 +16,40 @@
     body {
         font-feature-settings: "cv03", "cv04", "cv11";
     }
+
+
+
+     .tags-input-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tags-input {
+      border: 1px solid #ccc;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      min-height: 30px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #f1f1f1;
+      padding: 5px 10px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+    
+    .tag::before {
+      content: "#";
+      margin-right: 3px;
+    }
+
+    .close {
+      cursor: pointer;
+      margin-left: 5px;
+    }
 </style>

@@ -602,3 +602,33 @@
     });
     // @formatter:on
 </script>
+
+
+
+        <script>
+    const tagsInput = document.getElementById('tagsInput');
+    const tagsContainer = document.getElementById('tagsContainer');
+    const tagsSet = new Set();
+
+    tagsInput.addEventListener('keydown', function (event) {
+        if (event.key === ',' || event.key === 'Enter') {
+            event.preventDefault();
+
+            const tag = tagsInput.value.trim();
+            if (tag !== '' && !tagsSet.has(tag)) {
+                tagsSet.add(tag);
+
+                const tagElement = document.createElement('span');
+                tagElement.classList.add('tag');
+                tagElement.textContent = '#' + tag;
+
+                tagsContainer.appendChild(tagElement);
+
+                // Append the tag to the input field as well
+                tagsInput.value += (tagsInput.value.trim() === '') ? tag : `,${tag}`;
+            }
+
+            tagsInput.value = ''; // Clear the input field
+        }
+    });
+</script>

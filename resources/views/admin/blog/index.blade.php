@@ -50,6 +50,13 @@
                                     <span class="text-danger">{{$errors->has('slug') ? $errors->first('slug') : ''}}</span>
                                 </div>
                             </div>
+                              <div class="row mb-4">
+                                <label for="firstName" class="col-md-3 form-label">Blog Tags</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="tagsInput" name="name" placeholder="Enter tags">
+                                    <div class="tags-input" id="tagsContainer"></div>
+                                </div>
+                            </div>
                             <div class="row mb-4">
                                 <label for="lastName" class="col-md-3 form-label">Blog Description</label>
                                 <div class="col-md-9">
@@ -69,4 +76,5 @@
             </div>
         </div>
     </div>
+
 @endsection

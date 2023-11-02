@@ -52,11 +52,13 @@
 <!--search overlay start-->
 <div class="search-wrap">
     <div class="overlay">
-        <form action="#" class="search-form">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-9">
-                        <input type="text" class="form-control" placeholder="Search..."/>
+                        <form action="{{route('search.index')}}" method="GET">
+                            <input type="text" name="query" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
                     </div>
                     <div class="col-md-2 col-3 text-right">
                         <div class="search_toggle toggle-wrap d-inline-block">
@@ -65,7 +67,6 @@
                     </div>
                 </div>
             </div>
-        </form>
     </div>
 </div>
 <!--search overlay end-->

@@ -20,7 +20,6 @@
         </div>
     </div>
 </div>
-
         <div class="footer-btm mt-5 pt-4 border-top">
             <div class="row">
                 <div class="col-lg-12">
@@ -43,5 +42,4 @@
             </div>
         </div>
     </div>
-    @push('scripts')
 </section>

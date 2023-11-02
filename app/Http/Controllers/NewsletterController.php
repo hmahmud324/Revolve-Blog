@@ -25,7 +25,7 @@ class NewsletterController extends Controller
 
 	public function store(Request $request)
 	{	
-		 $request->validate([
+		$request->validate([
             'subject' => ['required', 'max:255'],
             'message' => ['required']
         ]);
@@ -35,8 +35,9 @@ class NewsletterController extends Controller
         /** Send mails */
         Mail::to($subscribers)->send(new Newsletter($request->subject, $request->message));
 
-        return redirect()->back()->with('message','Email sent successfully');
+       	notify()->success('Email sent successfully.');
 
+        return redirect()->back();
 	}
 
 

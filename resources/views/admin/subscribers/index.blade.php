@@ -1,5 +1,6 @@
 @extends('admin.master')
 
+    @notifyCss
 @section('body')
    <section>
         <div class="container">
@@ -86,4 +87,6 @@
    </div>
 </section>
 
+<x-notify::notify />
+        @notifyJs
 @endsection

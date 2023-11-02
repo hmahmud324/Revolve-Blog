@@ -108,21 +108,23 @@
                                 <ul class="list-unstyled">
                                     @foreach($categories as $category)
                                         <li class="align-items-center d-flex justify-content-between">
-                                            <a href="#">{{$category->name}}</a>
+                                            <a href="{{route('category.index',['id' =>$category->id])}}">{{$category->name}}</a>
                                             <span>{{$category->blogs()->count()}}</span>
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
-
                            <form action="{{route('subscribe-newsletter')}}" method="POST" class="newsletter-form">
                             @csrf
-                                 <div class="sidebar-widget subscribe mb-5">
-                                <h4 class="text-center widget-title">Newsletter</h4>
-                                <input type="text" class="form-control" name="email" placeholder="Email Address">
-                                <button href="" class="btn btn-primary d-block mt-3 news-button" type="submit">Sign Up</a>
-                                </div>
-                            </form>     
+                            <div class="sidebar-widget subscribe mb-5">
+                                  <h4 class="text-center widget-title">Newsletter</h4>
+                                  <form>
+                                    <div style="text-align: center;">
+                                      <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                      <button href="" class="btn btn-primary mx-auto mt-3 d-block" type="submit">Sign Up</button>
+                                    </div>
+                                  </form>
+                            </div>
                             <div class="sidebar-widget sidebar-adv mb-5">
                                 <a href="#"><img src="{{asset('/')}}website/assets/images/sidebar-banner3.png" alt="" class="img-fluid w-100"></a>
                             </div>

@@ -3,6 +3,9 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Category;
+use App\Models\Blog;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
@@ -29,8 +32,14 @@ use App\Http\Controllers\NewsletterController;
 Route::controller(MyBlogController::class)->group(function (){
     Route::get('/', 'index')->name('home');
     Route::get('/blog/index', 'allBlog')->name('blog.index');
+    Route::get('/blog/show/{id}', 'show')->name('blog.show');
     Route::get('/blog/details/{id}', 'detail')->name('blog.details');
     Route::get('/category/index/{id}', 'category')->name('category.index');
+    Route::get('/blog/most-views', 'mostViews')->name('blog.views');
+    Route::get('/search/index', 'search')->name('search.index');
+    Route::post('blog-comment', 'handleComment')->name('blog-comment');
+    Route::post('blog-reply', 'handleReply')->name('blog-reply');
+
 
 
     Route::post('subscribe-newsletter','subscribeNewsletter')->name('subscribe-newsletter');
@@ -49,17 +58,17 @@ Route::controller(ContactController::class)->group(function (){
 });
 
 
-
-
-
-
-
-
 Route::get('/dashboard', function () {
-   if (auth()->user()->role === 'admin') {
+    if (auth()->user()->role === 'admin') {
         return redirect()->route('admin.dashboard'); // Redirect admin to the admin.dashboard route
+    } elseif (auth()->user()->role === 'user') {
+        return view('website.home.index', [
+            'categories'     => Category::all(),
+            'featured_blogs' => Blog::where('featured_status', 1)->get(),
+            'slider_blogs'   => Blog::where('status', 0)->get(),
+        ]);
     } else {
-       return view('website.home.index');
+        return '';
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -72,7 +81,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-
+    
 
 Route::middleware(['auth','role:admin'])->group(function(){
 

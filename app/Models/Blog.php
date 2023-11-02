@@ -35,6 +35,20 @@ class Blog extends Model
         self::$blog->description    = $request->description;
         self::$blog->thumbnail      = self::$imageUrl;
         self::$blog->save();
+
+        $tags = explode(',', $request->tags);
+        $tagIds = [];
+
+        foreach ($tags as $tag) {
+        $item = new Tag();
+        $item->name = $tag;
+        $item->save();
+
+        $tagIds[] = $item->id;
+    }
+
+    // Associate the tags with the blog
+    self::$blog->tags()->attach($tagIds);   
     }
 
     public static function updateBlog($request, $id)
@@ -77,5 +91,25 @@ class Blog extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function incrementViews()
+    {
+        $this->views++;
+        $this->save();
+    }
+
+    public function scopeMostViewed($query, $limit = 3)
+    {
+        return $query->orderBy('views', 'desc')->take($limit);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class,'blogs_tags');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
 }

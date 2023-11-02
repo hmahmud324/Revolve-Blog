@@ -13,3 +13,11 @@
 <link rel="stylesheet" href="{{asset('/')}}website/assets/plugins/magnific-popup/magnific-popup.css">
 <!-- manin stylesheet -->
 <link rel="stylesheet" href="{{asset('/')}}website/assets/css/style.css">
+
+<style type="text/css">
+	.slider-item .post-thumb img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Adjust the maximum height as needed */
+}
+</style>
