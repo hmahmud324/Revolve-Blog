@@ -54,6 +54,7 @@ Route::controller(AboutController::class)->group(function (){
 
 Route::controller(ContactController::class)->group(function (){
     Route::get('/contact/index', 'index')->name('contact.index');
+    Route::post('/contact/store', 'store')->name('contact.store');
 
 });
 

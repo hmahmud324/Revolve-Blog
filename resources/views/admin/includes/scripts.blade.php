@@ -13,6 +13,18 @@
 <!-- SUMMERNOTE JS -->
 <script src="{{asset('/')}}admin/assets/libs/summernote/summernote.js"></script>
 
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script> -->
+<script src="https://unpkg.com/@yaireo/tagify"></script>
+<script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+<script>
+    // The DOM element you wish to replace with Tagify
+var input = document.querySelector('input[name=tags]');
+
+// initialize Tagify on the above input node reference
+new Tagify(input)
+  </script>
 <script>
     // @formatter:off
     document.addEventListener("DOMContentLoaded", function () {
@@ -601,7 +613,7 @@
         })).render();
     });
     // @formatter:on
-</script>
+<!-- </script>
 
 
 
@@ -631,4 +643,4 @@
             tagsInput.value = ''; // Clear the input field
         }
     });
-</script>
+</script> -->

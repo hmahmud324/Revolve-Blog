@@ -6,9 +6,11 @@
 <link href="{{asset('/')}}admin/assets/css/demo.min.css?1684106062" rel="stylesheet"/>
 <link href="{{asset('/')}}admin/assets/css/all.css" rel="stylesheet"/>
  <!-- SUMMERNOTE CSS -->
-    <link rel="stylesheet" href="{{asset('/')}}admin/assets/libs/summernote/summernote.css">
+<link rel="stylesheet" href="{{asset('/')}}admin/assets/libs/summernote/summernote.css">
 
-<style>
+<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+
+<!-- <style>
     @import url('https://rsms.me/inter/inter.css');
     :root {
         --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
@@ -52,4 +54,4 @@
       cursor: pointer;
       margin-left: 5px;
     }
-</style>
+</style> -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -45,8 +46,9 @@ class BlogController extends Controller
     public function edit($id)
     {
         return view('admin.blog.edit', [
-            'blog' => Blog::find($id),
-            'categories' => Category::all(),
+            'blog'         => Blog::find($id),
+            'categories'   => Category::all(),
+            'tags'         => Tag::all(),
         ]);
     }
 

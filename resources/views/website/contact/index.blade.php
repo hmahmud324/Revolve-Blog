@@ -26,15 +26,18 @@
                                 hippopotamus, but then she remembered how small she was now, and she soon made out that it
                                 was only a mouse that had slipped in like herself.</p>
                             <h2 class="mb-4">Get In Touch</h2>
-                            <form id="contact-form" class="contact-form">
+                            <form id="contact-form" action="{{route('contact.store')}}" method="POST" class="    contact-form">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group"><label for="name">Your Name (required)</label><input
-                                                class="form-control form-control-name" name="name" id="name" type="text"
-                                                required></div>
                                         <div class="form-group"><label for="email">Your Email (required)</label><input
                                                 class="form-control form-control-email" name="email" id="email" type="email"
-                                                required></div>
+                                                required/>
+                                            </div>
+                                        <div class="form-group"><label for="email">Subject (required)</label><input
+                                                class="form-control form-control-email" name="subject" id="subject" type="subject"
+                                                required/>
+                                            </div>
                                         <div class="form-group"><label for="message">Your Message</label><textarea
                                                 class="form-control form-control-message" name="message" id="message"
                                                 rows="7" required></textarea></div>
